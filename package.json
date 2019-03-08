@@ -1,6 +1,6 @@
 {
     "name": "rx-conditional-next",
-    "version": "0.0.1",
+    "version": "0.0.2-0",
     "description": "Update BehavioralSubject on  fulfilled conditions only",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
