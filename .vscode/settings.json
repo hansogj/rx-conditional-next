@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.colorCustomizations" : {
+        "activityBar.background": "#3d585f",
+        "sideBar.background": "#082c35",
+        "menu.background": "#3d585f",
+        "editorPane.background": "#3d585f",
+        "editor.background": "#1b3840"
+    }
+}
