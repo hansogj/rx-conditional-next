@@ -8,8 +8,10 @@
         "lib/**/*"
     ],
     "scripts": {
-        "test": "karma start  karma.conf.js --single-run",
-        "test:watch": "karma start  karma.conf.js --browsers=Chrome",
+        "clean": "rm -rf node _modules lib coverage  *.tgz",
+        "test": "npm run lint && karma start  karma.conf.js --single-run",
+        "test:watch": "karma start  karma.conf.js ",
+        "test:watch:debug": "karma start  karma.conf.js --browsers=Chrome",
         "build": "tsc",
         "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
         "lint": "tslint -p tsconfig.json",
@@ -29,27 +31,27 @@
         "behavoral",
         "subject"
     ],
-    "author": "hansogj@gmail.com",
+    "author": "Hans Ole Gjerdrum <hansogj@gmail.com>",
     "license": "ISC",
     "devDependencies": {
-        "prettier": "^1.16.4",
-        "tslint": "^5.13.1",
-        "tslint-config-prettier": "^1.18.0",
-        "typescript": "^3.3.3333",
         "@types/jasmine": "^2.8.2",
         "@types/node": "^8.0.0",
         "awesome-typescript-loader": "^3.4.1",
         "browserify": "^14.5.0",
         "jasmine-core": "^2.8.0",
         "karma": "^1.7.1",
+        "rxjs": "6.3.3",
         "karma-browserify": "^5.1.2",
         "karma-chrome-launcher": "^2.2.0",
         "karma-coverage": "^1.1.2",
         "karma-jasmine": "^1.1.0",
         "karma-typescript": "^3.0.8",
-        "tsify": "^3.0.3"
+        "prettier": "^1.16.4",
+        "rx-spy-util": "file:../rx-spy-util/rx-spy-util-1.0.0.tgz",
+        "tsify": "^3.0.3",
+        "tslint": "^5.13.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.3.3333"
     },
-    "dependencies": {
-        "rxjs": "6.3.3"
-    }
+    "dependencies": {}
 }

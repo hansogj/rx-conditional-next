@@ -3,13 +3,16 @@ import { BehaviorSubject } from 'rxjs';
 export interface INextStep<T> {
   onNext: (fn: (nextVal: T) => void) => INextStep<T>;
   onStop: (fn: (currVal: T) => void) => INextStep<T>;
+  value: T;
 }
 
 export function conditionalNext<T>(
   subject: BehaviorSubject<T>,
   nextVal: T,
-  criteria: (updateVal: T, currentValue: T) => boolean = (updateVal: T = nextVal, currentValue: T = subject.value) =>
-    updateVal !== currentValue,
+  criteria: (updateValue: T, currentValue: T) => boolean = (
+    updateValue: T = nextVal,
+    currentValue: T = subject.value,
+  ) => updateValue !== currentValue,
 ): INextStep<T> {
   const shouldUpdate: boolean = criteria(nextVal, subject.value);
 
@@ -18,19 +21,20 @@ export function conditionalNext<T>(
   }
 
   const res: INextStep<T> = {
-    onNext: (fn: (updateVal: T) => void) => {
+    onNext: (fn: (updateValue: T) => void) => {
       if (typeof fn === 'function' && shouldUpdate) {
         fn(nextVal);
       }
       return res;
     },
 
-    onStop: (fn: (currVal: T) => void) => {
+    onStop: (fn: (currValue: T) => void) => {
       if (typeof fn === 'function' && !shouldUpdate) {
         fn(nextVal);
       }
       return res;
     },
+    value: shouldUpdate ? nextVal : subject.value,
   };
   return res;
 }

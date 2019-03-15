@@ -1,21 +1,18 @@
-module.exports = function (config) {
+module.exports = function(config) {
     config.set({
-        frameworks: ["jasmine", "karma-typescript"],
-        files: [
-            { pattern: "./src/**/*.ts" },
-            { pattern: "./test/**/*.ts" }
-        ],
-        preprocessors: {
-            "./src/**/*.ts": ["karma-typescript", "coverage"],
-            "./test/**/*.ts": ["karma-typescript"]
-        },
+        frameworks: ['jasmine', 'karma-typescript'],
+
         karmaTypescriptConfig: {
-            compilerOptions: {
-                target: "ES2015",
-                lib: ["es5", "es6", "es2015", "dom"]
-            }
+            tsconfig: './tsconfig.spec.json',
         },
-        reporters: ["progress", "coverage", "karma-typescript"],
-        browsers: ["ChromeHeadless"]
+
+        files: ['src/**'],
+        preprocessors: {
+            'src/**': ['karma-typescript',  'coverage']
+        },
+        autoWatch: true,
+        singleRun: false,
+        reporters: ['progress', 'coverage', 'karma-typescript'],
+        browsers: ['ChromeHeadless'],
     });
 };
