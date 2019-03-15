@@ -47,7 +47,7 @@
         "karma-jasmine": "^1.1.0",
         "karma-typescript": "^3.0.8",
         "prettier": "^1.16.4",
-        "rx-spy-util": "file:../rx-spy-util/rx-spy-util-1.0.0.tgz",
+        "rx-spy-util": "^1.1.0",
         "tsify": "^3.0.3",
         "tslint": "^5.13.1",
         "tslint-config-prettier": "^1.18.0",
